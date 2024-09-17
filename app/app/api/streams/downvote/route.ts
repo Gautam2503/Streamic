@@ -33,7 +33,9 @@ export async function POST(req: NextRequest){
                 }
             }
         });
-
+        return NextResponse.json({
+            message: "Downvoted"
+        })
     }catch(e){
         return NextResponse.json({
             message: "Error while upvoting"

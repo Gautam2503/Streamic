@@ -31,7 +31,9 @@ export async function POST(req: NextRequest){
                 userId: user?.id as string
             }
         });
-
+        return NextResponse.json({
+            message: "Upvoted"
+        })
     }catch(e){
         return NextResponse.json({
             message: "Error while upvoting"

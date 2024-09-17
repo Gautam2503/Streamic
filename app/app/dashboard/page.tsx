@@ -34,6 +34,12 @@ export default function Component() {
     setQueue(queue.map(item => 
       item.id === id ? { ...item, votes: item.votes + increment } : item
     ).sort((a, b) => b.votes - a.votes))
+    fetch("api/stream/upvote" , {
+        method: "POST",
+        body: JSON.stringify({
+            streamId: id
+        })
+    })
   }
 
   const playNext = () => {
