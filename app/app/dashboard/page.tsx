@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
@@ -12,6 +12,8 @@ const getYouTubeId = (url: string) => {
   return match ? match[1] : null
 }
 
+const REFRESH_INTERVAL_MS = 10 * 1000;
+
 export default function Component() {
   const [videoUrl, setVideoUrl] = useState('')
   const [queue, setQueue] = useState([
@@ -20,6 +22,20 @@ export default function Component() {
     { id: '3', title: 'Song 3', votes: 1, thumbnail: '/placeholder.svg' },
   ])
   const [currentVideo, setCurrentVideo] = useState({ id: 'dQw4w9WgXcQ', title: 'Current Song' })
+
+  async function refreshStreams() {
+      const res = await fetch('/api/streams/my',{
+        credentials: 'include'
+      });
+      const json = await res.json();
+      setQueue(json.streams);
+  }
+  useEffect(() => {
+    refreshStreams();
+    const interval = setInterval(() => {
+        
+    } , REFRESH_INTERVAL_MS);
+  },[])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
