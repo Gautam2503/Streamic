@@ -1,0 +1,9 @@
+{
+	"devDependencies": {
+		"@types/react-toastify": "^4.1.0"
+	},
+	"dependencies": {
+		"react-lite-youtube-embed": "^2.4.0",
+		"react-toastify": "^10.0.5"
+	}
+}
