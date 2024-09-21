@@ -1,12 +1,6 @@
 "use client"
-import { useEffect, useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent } from "@/components/ui/card"
-//@ts-ignore
 import { ChevronUp, ChevronDown, ThumbsDown, Play, Share2 } from "lucide-react"
 import 'react-toastify/dist/ReactToastify.css'
-import { Appbar } from '../components/Appbar'
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 import StreamView from '../components/StreamView'
 

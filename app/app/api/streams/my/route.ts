@@ -36,11 +36,10 @@ export async function GET(req: NextRequest) {
         }
     })
     return NextResponse.json({
-        streams: streams.map(({_count , ...rest}) => ({
+        streams: streams.map(({ _count, ...rest }) => ({
             ...rest,
             upvotesCount: _count.upvotes,
-            // biome-ignore lint/complexity/noUselessTernary: <explanation>
-            haveVoted: rest.upvotes.length ? true : false
+            haveVoted: rest.upvotes.length > 0
         }))
     })
 }
